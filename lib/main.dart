@@ -9,9 +9,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xff554fff),
+        primaryColorDark: Color(0xff0024cb),
+        primaryColorLight: Color(0xff937cff),
+        accentColor: Color(0xffedecee),
+        //backgroundColor: Color(0xffffffff),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: MyHomePage(),
     );
   }
 }
