@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/MainScreens/LogIn/Login.dart';
+import 'package:shopping_list/MainScreens/LogIn/singUp.dart';
 import 'package:shopping_list/Utils/TextApp.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
 import 'package:shopping_list/Widgets/components/buttons/myLoginButton.dart';
@@ -19,7 +20,8 @@ Widget _singUpButton(BuildContext context) {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(5.0),
         ),
-        onPressed: () => print('boton registrarse pulsado'),
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SingUp())),
         child: Text(TextApp.SINGUP,
             style: TextStyle(fontSize: 18, color: Colors.white))),
   );
@@ -43,8 +45,11 @@ class _WelcomeState extends State<Welcome> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               DesignWidgets.tittleCustom(),
-              MyLoginButton(TextApp.LOGIN, Theme.of(context).primaryColor,
-                  Colors.white, Login()),
+              MyLoginButton(
+                  text: TextApp.LOGIN,
+                  colorButtonBackgroud: Theme.of(context).primaryColor,
+                  colorText: Colors.white,
+                  widgetToNavigate: Login()),
               _singUpButton(context)
             ],
           ),

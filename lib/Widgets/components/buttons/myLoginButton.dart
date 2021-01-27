@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class MyLoginButton extends StatelessWidget {
-  String _text;
-  Color _colorText;
-  Color _colorButtonBackgroud;
-  Widget _widgetToNavigate;
-  MyLoginButton(this._text, this._colorText, this._colorButtonBackgroud,
-      this._widgetToNavigate);
+  final String text;
+  final Color colorText;
+  final Color colorButtonBackgroud;
+  final Widget widgetToNavigate;
+
+  MyLoginButton(
+      {this.text,
+      this.colorText,
+      this.colorButtonBackgroud,
+      this.widgetToNavigate});
 
   @override
   Widget build(BuildContext context) {
@@ -16,15 +20,15 @@ class MyLoginButton extends StatelessWidget {
       child: RaisedButton(
           elevation: 5.0,
           onPressed: () => Navigator.push(context,
-              MaterialPageRoute(builder: (context) => _widgetToNavigate)),
+              MaterialPageRoute(builder: (context) => widgetToNavigate)),
           padding: EdgeInsets.all(15.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5.0),
           ),
-          color: _colorButtonBackgroud,
-          child: Text(_text,
+          color: colorButtonBackgroud,
+          child: Text(text,
               style: TextStyle(
-                  color: _colorText,
+                  color: colorText,
                   letterSpacing: 1.5,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold))),

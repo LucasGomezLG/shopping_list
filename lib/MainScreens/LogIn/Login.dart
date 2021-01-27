@@ -6,6 +6,7 @@ import 'package:shopping_list/Utils/TextApp.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
 import 'package:shopping_list/Widgets/components/buttons/myBackButton.dart';
 import 'package:shopping_list/Widgets/components/buttons/myLoginButton.dart';
+import 'package:shopping_list/Widgets/components/buttons/mySingUpButton.dart';
 import 'package:shopping_list/Widgets/components/containers/containerShape01.dart';
 import 'package:shopping_list/Widgets/components/fields/myFieldForm.dart';
 
@@ -18,8 +19,8 @@ class _LoginState extends State<Login> {
   Widget _emailPasswordWidget() {
     return Column(
       children: <Widget>[
-        MyFieldForm(TextApp.EMAIL_ID, false),
-        MyFieldForm(TextApp.PASSWORD, true),
+        MyFieldForm(tittle: TextApp.EMAIL_ID),
+        MyFieldForm(tittle: TextApp.PASSWORD, isPassword: true),
       ],
     );
   }
@@ -93,7 +94,6 @@ class _LoginState extends State<Login> {
             body: Stack(
       children: [
         ContainerShape01(),
-        Positioned(top: height * .025, child: MyBackButton()),
         Container(
           height: double.infinity,
           width: double.infinity,
@@ -108,8 +108,11 @@ class _LoginState extends State<Login> {
                 padding: EdgeInsets.only(top: height * .05),
                 child: _emailPasswordWidget(),
               ),
-              MyLoginButton(TextApp.LOGIN, Colors.white,
-                  Theme.of(context).primaryColor, Home()),
+              MyLoginButton(
+                  text: TextApp.LOGIN,
+                  colorText: Colors.white,
+                  colorButtonBackgroud: Theme.of(context).primaryColor,
+                  widgetToNavigate: Home()),
               _forgottenPassword(),
               _divider(),
               Container(
@@ -122,10 +125,16 @@ class _LoginState extends State<Login> {
                     darkMode: false,
                     text: TextApp.GOOGLE_SING),
               ),
-              _singUpLabel()
+              MySingUpButton(
+                firstText: TextApp.DONT_HAVE_ACCOUNT,
+                secondText: TextApp.SINGUP,
+                secondTextColor: Theme.of(context).primaryColorDark,
+                widgetToNavigate: SingUp(),
+              )
             ],
           ),
-        )
+        ),
+        Positioned(top: height * .025, child: MyBackButton()),
       ],
     )));
   }
