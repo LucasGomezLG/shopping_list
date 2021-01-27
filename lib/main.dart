@@ -1,11 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shopping_list/MainScreens/LogIn/welcome.dart';
-import 'package:shopping_list/MainScreens/home.dart';
 import 'package:shopping_list/Utils/assetsImages.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'Utils/TextApp.dart';
 import 'Utils/constantsApp.dart';
+import 'dart:developer' as developer;
 
 void main() {
   runApp(MyApp());
@@ -34,18 +35,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final Future<FirebaseApp> _initializationFirebase = Firebase.initializeApp();
+  static const String TAG = "main";
+
   @override
   Widget build(BuildContext context) {
-    return SplashScreen(
-      seconds: ConstantsApp.TIME_SPLASH_SCREEN,
-      navigateAfterSeconds: Welcome(),
-      image: AssetsImages.ImageLauncher(),
-      backgroundColor: Colors.white,
-      photoSize: 200,
-      loaderColor: Theme.of(context).primaryColor,
-      loadingText:
-          Text(TextApp.LOADING, style: Theme.of(context).textTheme.bodyText1),
-      gradientBackground: DesignWidgets.linearGradientMain(context),
-    );
+    return Center(
+        child: FutureBuilder(
+            future: _initializationFirebase,
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                developer.log(TAG + ", Firebase init. ERROR");
+                return SnackBar(content: Text("Error inicializando Firebase"));
+              } else if (snapshot.connectionState == ConnectionState.done) {
+                developer.log(TAG + ", Firebase init. DONE");
+                return SplashScreen(
+                  seconds: ConstantsApp.TIME_SPLASH_SCREEN,
+                  navigateAfterSeconds: Welcome(),
+                  image: AssetsImages.ImageLauncher(),
+                  backgroundColor: Colors.white,
+                  photoSize: 200,
+                  loaderColor: Theme.of(context).primaryColor,
+                  loadingText: Text(TextApp.LOADING,
+                      style: Theme.of(context).textTheme.bodyText1),
+                  gradientBackground: DesignWidgets.linearGradientMain(context),
+                );
+              }
+              return CircularProgressIndicator();
+            }));
   }
 }
