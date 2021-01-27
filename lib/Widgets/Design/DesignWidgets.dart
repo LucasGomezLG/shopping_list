@@ -27,4 +27,19 @@ class DesignWidgets {
           ]),
     );
   }
+
+  static RichText tittleCustomDark() {
+    return RichText(
+      textAlign: TextAlign.center,
+      text: TextSpan(
+          text: 'Shopping',
+          style: GoogleFonts.portLligatSans(
+              fontSize: 30, fontWeight: FontWeight.w700, color: Colors.grey),
+          children: [
+            TextSpan(
+                text: "List",
+                style: TextStyle(color: Colors.black, fontSize: 30)),
+          ]),
+    );
+  }
 }

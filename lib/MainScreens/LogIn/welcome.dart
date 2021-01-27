@@ -1,31 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list/MainScreens/LogIn/Login.dart';
 import 'package:shopping_list/Utils/TextApp.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
+import 'package:shopping_list/Widgets/components/buttons/myLoginButton.dart';
 
 class Welcome extends StatefulWidget {
   @override
   _WelcomeState createState() => _WelcomeState();
-}
-
-Widget _loginButton(BuildContext context) {
-  return Container(
-    padding: EdgeInsets.only(top: 50.0, bottom: 25),
-    width: double.infinity,
-    child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () => print('boton iniciar sesion pulsado'),
-        padding: EdgeInsets.all(15.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(5.0),
-        ),
-        color: Colors.white,
-        child: Text(TextApp.LOGIN,
-            style: TextStyle(
-                color: Theme.of(context).primaryColor,
-                letterSpacing: 1.5,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold))),
-  );
 }
 
 Widget _singUpButton(BuildContext context) {
@@ -62,7 +43,8 @@ class _WelcomeState extends State<Welcome> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               DesignWidgets.tittleCustom(),
-              _loginButton(context),
+              MyLoginButton(TextApp.LOGIN, Theme.of(context).primaryColor,
+                  Colors.white, Login()),
               _singUpButton(context)
             ],
           ),

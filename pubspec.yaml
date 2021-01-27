@@ -21,8 +21,10 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  flutter_auth_buttons: ^0.10.0
   google_fonts: ^1.1.0
   splashscreen: ^1.2.0
+  flutter_custom_clippers: ^1.1.2
   flutter:
     sdk: flutter
 
