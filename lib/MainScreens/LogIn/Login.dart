@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:shopping_list/MainScreens/Items/listItems.dart';
 import 'package:shopping_list/MainScreens/LogIn/singUp.dart';
-import 'package:shopping_list/MainScreens/home.dart';
 import 'package:shopping_list/Utils/TextApp.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
 import 'package:shopping_list/Widgets/components/buttons/myBackButton.dart';
@@ -112,7 +112,7 @@ class _LoginState extends State<Login> {
                   text: TextApp.LOGIN,
                   colorText: Colors.white,
                   colorButtonBackgroud: Theme.of(context).primaryColor,
-                  widgetToNavigate: Home()),
+                  widgetToNavigate: ListItems()),
               _forgottenPassword(),
               _divider(),
               Container(

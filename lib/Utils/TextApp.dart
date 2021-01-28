@@ -11,4 +11,5 @@ class TextApp {
   static const DONT_HAVE_ACCOUNT = "No tienes una cuenta?";
   static const USER_NAME = "Nombre de usuario";
   static const I_HAVE_ACCOUNT = "Ya tengo una cuenta";
+  static const LIST_TITTLE = "Lista de items";
 }

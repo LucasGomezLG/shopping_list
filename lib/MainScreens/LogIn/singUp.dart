@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
+import 'package:shopping_list/MainScreens/Items/listItems.dart';
 import 'package:shopping_list/MainScreens/LogIn/Login.dart';
-import 'package:shopping_list/MainScreens/home.dart';
 import 'package:shopping_list/Utils/TextApp.dart';
 import 'package:shopping_list/Widgets/Design/DesignWidgets.dart';
 import 'package:shopping_list/Widgets/components/buttons/myBackButton.dart';
@@ -24,31 +23,6 @@ class _SingUpState extends State<SingUp> {
         MyFieldForm(tittle: TextApp.PASSWORD, isPassword: true),
       ],
     );
-  }
-
-  Widget _singUpLabel() {
-    return FlatButton(
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SingUp())),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              TextApp.I_HAVE_ACCOUNT,
-              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Text(
-              TextApp.LOGIN,
-              style: TextStyle(
-                  color: Theme.of(context).primaryColorDark,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w600),
-            )
-          ],
-        ));
   }
 
   @override
@@ -77,7 +51,7 @@ class _SingUpState extends State<SingUp> {
                   text: TextApp.SINGUP,
                   colorText: Colors.white,
                   colorButtonBackgroud: Theme.of(context).primaryColor,
-                  widgetToNavigate: Home()),
+                  widgetToNavigate: ListItems()),
               MySingUpButton(
                 firstText: TextApp.I_HAVE_ACCOUNT,
                 secondText: TextApp.LOGIN,
