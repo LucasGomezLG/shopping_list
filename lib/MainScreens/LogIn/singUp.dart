@@ -82,7 +82,7 @@ class _SingUpState extends State<SingUp> {
                 firstText: TextApp.I_HAVE_ACCOUNT,
                 secondText: TextApp.LOGIN,
                 secondTextColor: Theme.of(context).primaryColorDark,
-                widgetToNavigate: SingUp(),
+                widgetToNavigate: Login(),
               )
             ],
           ),
